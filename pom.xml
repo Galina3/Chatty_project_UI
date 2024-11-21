@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>Chatty_project_UI</artifactId>
+    <artifactId>Chatty-UI</artifactId>
     <version>1.0-SNAPSHOT</version>
 
         <dependencies>
@@ -26,5 +26,5 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
 </project>
