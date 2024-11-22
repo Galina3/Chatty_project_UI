@@ -12,19 +12,21 @@ import java.time.Duration;
 public class AdminPanelPage extends BasePage {
     @FindBy(xpath = "//input[@placeholder='Search by email...']")
     private WebElement searchByEmailEditBox;
+
     @FindBy(xpath = "//button[contains(text(), 'Search')]")
     private WebElement searchButton;
+
     @FindBy(xpath = "//span[@data-test='deleteUserButton']")
     private WebElement deleteUserButton;
 
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
 
     public AdminPanelPage(WebDriver driver) {
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public AdminPanelPage inputSearchByEmailEditBox(String email){
+    public AdminPanelPage inputSearchByEmailEditBox(String email) {
         wait.until(ExpectedConditions.visibilityOf(searchByEmailEditBox));
         searchByEmailEditBox.sendKeys(email);
         return this;

@@ -12,7 +12,6 @@ public class RandomDataUtil {
     private RandomDataUtil() {
     }
 
-
     public static String getRandomValidEmail() {
         int boundaryMax1 = 10;
         int boundaryMin1 = 2;
@@ -22,7 +21,7 @@ public class RandomDataUtil {
 
         randomEmailBeforeA.append(CAPITAL_SMALL_LATIN_LETTERS_DIGITS.charAt(RANDOM.nextInt(LENGTH)));
 
-        for (int index = 1;  index < emailLengthBeforeA - 1; index++) {
+        for (int index = 1; index < emailLengthBeforeA - 1; index++) {
             randomEmailBeforeA.append(CAPITAL_SMALL_LATIN_LETTERS_DIGITS.charAt(RANDOM.nextInt(LENGTH)));
         }
 
@@ -50,9 +49,8 @@ public class RandomDataUtil {
         return phone.toString();
     }
 
-
     private static StringBuilder createCapitalSmallLatinLettersDigits() {
-        int maxLength= 62;
+        int maxLength = 62;
         StringBuilder capitalSmallLatinLettersDigits = new StringBuilder(maxLength);
 
         int minUnicodeA = 65;

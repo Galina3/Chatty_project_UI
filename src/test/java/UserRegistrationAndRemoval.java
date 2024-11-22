@@ -12,6 +12,9 @@ public class UserRegistrationAndRemoval extends BaseTest {
     protected String password = "12345678909876543210Gsm";
     protected final static String ADMIN_EMAIL = "admintest@gmail.com";
     protected final static String ADMIN_PASSWORD = "Admin1234567890";
+    private AdminPanelPage adminPanelPage;
+    private HomePage homePage;
+    private LoginPage loginPage;
 
     @BeforeEach
     public void registerUser() {

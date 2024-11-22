@@ -35,19 +35,29 @@ public class HomePage extends BasePage {
     private WebElement contactButton;
     @FindBy(xpath = "//div[@class='header']//p[1]")
     private WebElement headerUserMenuDropDown;
+
     @FindBy(xpath = "//a[contains(text(),'Logout')]")
     private WebElement logoutButton;
 
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
 
     public HomePage(WebDriver driver) {
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
+    public boolean isCreatePostDisplayed() {
+        wait.until(ExpectedConditions.visibilityOf(createPost));
+        return createPost.isDisplayed();
+    }
     public boolean isDisplayedErrorMessageWhenFieldIsEmpty() {
         wait.until(ExpectedConditions.visibilityOf(errorMessageWhenFieldIsEmpty));
         return errorMessageWhenFieldIsEmpty.isDisplayed();
+    }
+
+    public HomePage openHomePage() {
+        homeButton.click();
+        return new HomePage(driver);
     }
 
     public HomePage createPost(){
@@ -56,13 +66,9 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage openHomePage(){
-        homeButton.click();
-        return new HomePage(driver);
-    }
-
-    public HomePage moveMouseToDropDownMenu(){
+    public HomePage moveMouseToDropDownMenu() {
         Actions actions = new Actions(driver);
+        wait.until(ExpectedConditions.visibilityOf(headerUserMenuDropDown));
         actions.moveToElement(headerUserMenuDropDown).perform();
         return this;
     }
