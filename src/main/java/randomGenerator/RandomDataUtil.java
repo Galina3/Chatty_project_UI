@@ -74,3 +74,4 @@ public class RandomDataUtil {
         return capitalSmallLatinLettersDigits;
     }
 }
+
