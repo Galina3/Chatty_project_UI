@@ -35,4 +35,15 @@ public class CreatePostTest extends UserRegistrationAndRemoval {
               .clickMyDraftButton();
         assertEquals(driver.getCurrentUrl(),expectedUrl);
     }
+
+    @Test
+    public void CreatePostWithEmptyTitleEditBoxTest(){
+        new HomePage(driver)
+                .clickCreatePost()
+                .inputDescriptionEditBox(description)
+                .inputContentEditBox(content)
+                .clickSubmitButton();
+        assertTrue(new HomePage(driver).isDisplayedErrorMessageWhenFieldIsEmpty());
+    }
+
 }

@@ -27,6 +27,9 @@ public class HomePage extends BasePage {
     public WebElement saveAsADraftButton;
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[3]/div/div/div/div[2]/a[2]/span")
     public WebElement myDraftButton;
+    //*[@id="root"]/div[2]/div[2]/div/form/div[1]/p
+    @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[1]/p")
+    public WebElement errorMessageWhenFieldIsEmpty;
 
 
     @FindBy(xpath = "//a[contains(text(),'Home')]")
@@ -44,7 +47,10 @@ public class HomePage extends BasePage {
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
+    public boolean isDisplayedErrorMessageWhenFieldIsEmpty() {
+        wait.until(ExpectedConditions.visibilityOf(errorMessageWhenFieldIsEmpty));
+        return errorMessageWhenFieldIsEmpty.isDisplayed();
+    }
     public boolean isCreatePostDisplayed() {
         wait.until(ExpectedConditions.visibilityOf(createPost));
         return createPost.isDisplayed();
