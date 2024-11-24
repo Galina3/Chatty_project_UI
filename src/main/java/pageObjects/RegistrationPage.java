@@ -13,9 +13,6 @@ public class RegistrationPage extends BasePage{
     @FindBy(xpath = "//input [@placeholder='Email']")
     public WebElement emailRegistrationEditBox;
 
-    @FindBy(xpath = "//div[contains(text(), 'Incorrect email format')]")
-    public WebElement errorMessage;
-
     @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement passwordRegistrationEditBox;
 
@@ -31,8 +28,6 @@ public class RegistrationPage extends BasePage{
     public RegistrationPage(WebDriver driver) {
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-
     }
 
     public RegistrationPage inputEmail(String email){
@@ -55,14 +50,5 @@ public class RegistrationPage extends BasePage{
         registrationButton.click();
         return new HomePage(driver);
     }
-
-
-
-//
-//    public static void main(String[] args) {
-//
-//        System.out.println("Button displayed: " + registrationButton.isDisplayed());
-//        System.out.println("Button enabled: " + registrationButton.isEnabled());
-//}
 }
 
