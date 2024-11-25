@@ -36,8 +36,7 @@ public class UserRegistrationAndRemoval extends BaseTest {
                 .clickLoginButton();
         new AdminPanelPage(driver)
                 .inputSearchByEmailEditBox(validEmail)
-                .clickSearchButton();
-        new AdminPanelPage(driver)
+                .clickSearchButton()
                 .clickDeleteUserButton();
     }
 }

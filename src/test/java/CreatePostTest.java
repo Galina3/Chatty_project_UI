@@ -9,7 +9,6 @@ public class CreatePostTest extends UserRegistrationAndRemoval {
     private final String content = "Post New Content";
     private final String expectedUrl = "http://chatty.telran-edu.de:8089/draft";
 
-
     @Test
     public void CreatePostWithValidDataTest() {
         new HomePage(driver)
@@ -20,8 +19,6 @@ public class CreatePostTest extends UserRegistrationAndRemoval {
                 .clickSubmitButton();
         assertTrue(new HomePage(driver).isDisplayedNewCreatePostName());
     }
-
-
 
     @Test
     public void CreateMyDraftsWithValidDateTest() {
@@ -45,5 +42,4 @@ public class CreatePostTest extends UserRegistrationAndRemoval {
                 .clickSubmitButton();
         assertTrue(new HomePage(driver).isDisplayedErrorMessageWhenFieldIsEmpty());
     }
-
 }
