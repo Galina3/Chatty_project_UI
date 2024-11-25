@@ -29,7 +29,7 @@ public class CreatePostTest extends UserRegistrationAndRemoval {
                 .inputContentEditBox(content)
                 .clickSaveAsADraft()
                 .clickSubmitButton()
-              .clickMyDraftButton();
+                .clickMyDraftButton();
         assertEquals(driver.getCurrentUrl(),expectedUrl);
     }
 

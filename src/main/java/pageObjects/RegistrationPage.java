@@ -12,13 +12,10 @@ import java.time.Duration;
 public class RegistrationPage extends BasePage{
     @FindBy(xpath = "//input [@placeholder='Email']")
     public WebElement emailRegistrationEditBox;
-
     @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement passwordRegistrationEditBox;
-
     @FindBy(xpath = "//input[@placeholder='Confirm password']")
     public WebElement confirmPasswordRegistrationEditBox;
-
     @FindBy(xpath = "//button[@class='registration-btn']")
     public WebElement registrationButton;
 

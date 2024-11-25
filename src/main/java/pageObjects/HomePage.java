@@ -27,18 +27,15 @@ public class HomePage extends BasePage {
     public WebElement saveAsADraftButton;
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[3]/div/div/div/div[2]/a[2]/span")
     public WebElement myDraftButton;
-    //*[@id="root"]/div[2]/div[2]/div/form/div[1]/p
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[1]/p")
     public WebElement errorMessageWhenFieldIsEmpty;
-
-
     @FindBy(xpath = "//a[contains(text(),'Home')]")
     private WebElement homeButton;
     @FindBy(xpath = "//a[contains(text(),'Contact')]")
     private WebElement contactButton;
     @FindBy(xpath = "//div[@class='header']//p[1]")
     private WebElement headerUserMenuDropDown;
-    @FindBy(xpath = "//a[contains(text(),'Logout')]") ////*[@class="__web-inspector-hide-shortcut__"]
+    @FindBy(xpath = "//a[contains(text(),'Logout')]")
     private WebElement logoutButton;
 
     private WebDriverWait wait;
@@ -47,54 +44,52 @@ public class HomePage extends BasePage {
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+
     public boolean isDisplayedErrorMessageWhenFieldIsEmpty() {
         wait.until(ExpectedConditions.visibilityOf(errorMessageWhenFieldIsEmpty));
         return errorMessageWhenFieldIsEmpty.isDisplayed();
     }
-    public boolean isCreatePostDisplayed() {
-        wait.until(ExpectedConditions.visibilityOf(createPost));
-        return createPost.isDisplayed();
-    }
-
 
     public HomePage createPost(){
         wait.until(ExpectedConditions.visibilityOf(createPost));
         createPost.click();
         return this;
     }
+
     public HomePage openHomePage(){
         homeButton.click();
         return new HomePage(driver);
     }
-
-
 
     public HomePage moveMouseToDropDownMenu(){
         Actions actions = new Actions(driver);
         actions.moveToElement(headerUserMenuDropDown).perform();
         return this;
     }
+
     public LoginPage clickLogoutButton(){
         logoutButton.click();
         return new LoginPage(driver);
     }
-
 
     public HomePage inputTitleEditBox(String title) {
         wait.until(ExpectedConditions.visibilityOf(titleEditBox));
         titleEditBox.sendKeys(title);
         return this;
     }
+
     public HomePage inputDescriptionEditBox(String description) {
         wait.until(ExpectedConditions.visibilityOf(descriptionEditBox));
         descriptionEditBox.sendKeys(description);
         return this;
     }
+
     public HomePage inputContentEditBox(String content) {
         wait.until(ExpectedConditions.visibilityOf(contactButton));
         contentEditBox.sendKeys(content);
         return this;
     }
+
     public HomePage clickCreatePost() {
         wait.until(ExpectedConditions.urlContains("home"));
         createPost.click();
@@ -116,14 +111,11 @@ public class HomePage extends BasePage {
         saveAsADraftButton.click();
         return new HomePage(driver);
     }
+
     public DraftPage clickMyDraftButton() {
         wait.until(ExpectedConditions.urlContains("home"));
         wait.until(ExpectedConditions.visibilityOf(myDraftButton));
         myDraftButton.click();
         return new DraftPage(driver);
     }
-    public String getCurrentUrl(){
-        return driver.getCurrentUrl();
-    }
-
 }

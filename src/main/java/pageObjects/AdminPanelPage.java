@@ -16,23 +16,26 @@ public class AdminPanelPage extends BasePage {
     private WebElement searchButton;
     @FindBy(xpath = "//span[@data-test='deleteUserButton']")
     private WebElement deleteUserButton;
+
     private WebDriverWait wait;
+
     public AdminPanelPage(WebDriver driver) {
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
 
     public AdminPanelPage inputSearchByEmailEditBox(String email){
         wait.until(ExpectedConditions.visibilityOf(searchByEmailEditBox));
         searchByEmailEditBox.sendKeys(email);
         return this;
     }
+
     public AdminPanelPage clickSearchButton(){
         wait.until(ExpectedConditions.visibilityOf(searchButton));
         searchButton.click();
         return this;
     }
+
     public AdminPanelPage clickDeleteUserButton(){
         wait.until(ExpectedConditions.visibilityOf(deleteUserButton));
         deleteUserButton.click();

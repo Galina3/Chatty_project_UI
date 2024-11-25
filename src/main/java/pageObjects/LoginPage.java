@@ -15,6 +15,7 @@ public class LoginPage extends BasePage {
     private WebElement passwordLoginFormEditBox;
     @FindBy(xpath = "//button[contains(text(), 'Login')]")
     private WebElement loginButton;
+
     private WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
