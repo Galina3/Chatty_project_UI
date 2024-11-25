@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)//анатация которая позволяет BeforeAll работать без статического метода
+//@TestInstance(TestInstance.Lifecycle.PER_CLASS)//анатация которая позволяет BeforeAll работать без статического метода
 public class BaseTest {
     protected WebDriver driver;
 
