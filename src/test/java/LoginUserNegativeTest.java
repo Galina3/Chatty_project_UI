@@ -6,19 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginUserNegativeTest extends BaseTest {
     private LoginPage loginPage;
-    private String invalidEmail;
-    private String validPassword;
-    private String emptyEmail;
-    private String validEmail;
-    private String emptyPassword;
+    private final String invalidEmail = "mdv2.gmail.com";
+    private final String validPassword = "7304227Gsm";
+    private final String emptyEmail = "";
+    private final String validEmail = "mdvgsm3@gmail.com";
+    private final String emptyPassword = "";
 
     @BeforeEach
     public void setUpBeforeTest() {
-        invalidEmail = "mdv2.gmail.com";
-        validEmail = "mdvgsm3@gmail.com";
-        validPassword = "7304227Gsm";
-        emptyEmail = "";
-        emptyPassword = "";
         this.loginPage = new LoginPage(driver);
         driver.get("http://chatty.telran-edu.de:8089/login");
     }
@@ -34,21 +29,24 @@ public class LoginUserNegativeTest extends BaseTest {
         assertTrue(loginPage.getEmailErrorMessageText().contains("Incorrect"));
     }
 
-    @Test void testLoginFailsWithEmptyFields() {
+    @Test
+    public void testLoginFailsWithEmptyFields() {
         new LoginPage(driver).inputEmail(emptyEmail)
                 .inputPassword(emptyPassword)
                 .loginButtonIsNotClickable();
         assertFalse(loginPage.isLoginButtonClickable());
     }
 
-    @Test void testLoginFailsWithEmptyEmail() {
+    @Test
+    public void testLoginFailsWithEmptyEmail() {
         new LoginPage(driver).inputEmail(emptyEmail)
                 .inputPassword(validPassword)
                 .loginButtonIsNotClickable();
         assertFalse(loginPage.isLoginButtonClickable());
     }
 
-    @Test void testLoginFailsWithEmptyPassword() {
+    @Test
+    public void testLoginFailsWithEmptyPassword() {
         new LoginPage(driver).inputEmail(validEmail)
                 .inputPassword(emptyPassword)
                 .clickLoginButton();

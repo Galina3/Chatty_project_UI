@@ -7,17 +7,13 @@ import pageObjects.RegistrationPage;
 
 public class RegisterUserTest extends BaseTest {
     private RegistrationPage registrationPage;
-    private String validPassword;
-    private String validEmail;
-    private String invalidPassword;
-    private String invalidEmail;
+    private final String validPassword = "7269056Gsm";
+    private final String validEmail = "mdvgsm9@gmail.com";
+    private final String invalidPassword = "7269056G";
+    private final String invalidEmail = "test.gmail.com";
 
     @BeforeEach
     public void setUpBeforeTest() {
-        validPassword = "7269056Gsm";
-        invalidEmail = "test.gmail.com";
-        validEmail = "mdvgsm9@gmail.com";
-        invalidPassword = "7269056G";
         this.registrationPage = new RegistrationPage(driver);
     }
 
