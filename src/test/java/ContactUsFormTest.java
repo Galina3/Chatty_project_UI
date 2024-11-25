@@ -20,6 +20,7 @@ public class ContactUsFormTest extends UserRegistrationAndRemoval {
                 .clickSendMessageButton();
         assertTrue(new ContactPage(driver).isMessageSent());
     }
+
     @Test
     public void submitContactUsFormWithEmptyMessageFieldTest() {
         new HomePage(driver)
@@ -29,6 +30,7 @@ public class ContactUsFormTest extends UserRegistrationAndRemoval {
                 .inputEmail(validEmail);
         assertFalse(new ContactPage(driver).isMessageSent());
     }
+
     @Test
     public void submitContactUsFormWithInvalidEmailTest() {
         new HomePage(driver)

@@ -7,8 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
+
 public class ContactPage extends BasePage {
+
     @FindBy(xpath = "//a[contains(text(),'Contact')]")
     public WebElement contactButton;
     @FindBy(xpath = "//input[@id='name']")
@@ -30,28 +33,34 @@ public class ContactPage extends BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
+
     public ContactPage inputUsername(String username) {
         wait.until(ExpectedConditions.visibilityOf(usernameField));
         usernameField.sendKeys(username);
         return this;
     }
+
     public ContactPage inputEmail(String email) {
         wait.until(ExpectedConditions.visibilityOf(emailField));
         emailField.sendKeys(email);
         return this;
     }
+
     public ContactPage inputMessage(String message) {
         wait.until(ExpectedConditions.visibilityOf(messageField));
         messageField.sendKeys(message);
         return this;
     }
+
     public void clickSendMessageButton() {
         wait.until(ExpectedConditions.visibilityOf(sendMessageButton));
         sendMessageButton.click();
     }
+
     public boolean isErrorMessageInvalidEmailDisplayed() {
         return errorMessage.isDisplayed();
     }
+
     public boolean isMessageSent() {
         try {
             wait.until(ExpectedConditions.visibilityOf(successMessage));
