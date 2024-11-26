@@ -9,68 +9,34 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class RegistrationPage extends BasePage{
-
     @FindBy(xpath = "//input [@placeholder='Email']")
     public WebElement emailRegistrationEditBox;
-
-    @FindBy(xpath = "//div[contains(text(), 'Incorrect email format')]")
-    public WebElement errorMessage;
-
     @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement passwordRegistrationEditBox;
-
     @FindBy(xpath = "//input[@placeholder='Confirm password']")
     public WebElement confirmPasswordRegistrationEditBox;
-
     @FindBy(xpath = "//button[@class='registration-btn']")
     public WebElement registrationButton;
-
-
     private WebDriverWait wait;
-
-    public RegistrationPage(WebDriver driver) {
+    public RegistrationPage(WebDriver driver){
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-
     }
-
     public RegistrationPage inputEmail(String email){
         emailRegistrationEditBox.sendKeys(email);
         return this;
     }
-
-    public boolean isErrorMessageInvalidEmailDisplayed(){
-        return errorMessage.isDisplayed();
-    }
-
-    public RegistrationPage getInvalidEmailErrorText(String errorMessage) {
-        return this;
-    }
-
     public RegistrationPage inputPassword(String password){
         passwordRegistrationEditBox.sendKeys(password);
         return this;
     }
-
     public RegistrationPage inputConfirmPassword(String confirmPassword) {
         confirmPasswordRegistrationEditBox.sendKeys(confirmPassword);
         return this;
     }
-
     public HomePage clickRegistrationButton(){
         wait.until(ExpectedConditions.visibilityOf(registrationButton));
         registrationButton.click();
         return new HomePage(driver);
     }
-
-
-
-//
-//    public static void main(String[] args) {
-//
-//        System.out.println("Button displayed: " + registrationButton.isDisplayed());
-//        System.out.println("Button enabled: " + registrationButton.isEnabled());
-//}
-
 }

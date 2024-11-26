@@ -17,27 +17,22 @@ public class LoginPage extends BasePage {
     private WebElement loginButton;
     private WebDriverWait wait;
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver){
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
-    public LoginPage inputEmail(String email) {
+    public LoginPage inputEmail(String email){
         emailLoginFormEditBox.sendKeys(email);
         return this;
     }
-
-    public LoginPage inputPassword(String password) {
+    public LoginPage inputPassword(String password){
         passwordLoginFormEditBox.sendKeys(password);
         return this;
     }
-
     public HomePage clickLoginButton(){
         wait.until(ExpectedConditions.visibilityOf(loginButton));
         loginButton.click();
         return new HomePage(driver);
     }
-
-
 }
 

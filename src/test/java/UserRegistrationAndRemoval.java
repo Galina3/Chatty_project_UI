@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import pageObjects.AdminPanelPage;
-import pageObjects.HomePage;
-import pageObjects.LoginPage;
-import pageObjects.RegistrationPage;
+import pageObjects.*;
 import randomGenerator.RandomDataUtil;
 
 public class UserRegistrationAndRemoval extends BaseTest{
@@ -14,35 +11,27 @@ public class UserRegistrationAndRemoval extends BaseTest{
     private AdminPanelPage adminPanelPage;
     private HomePage homePage;
 
-
-
     @BeforeEach
     public void registerUser() {
         this.validEmail = RandomDataUtil.getRandomValidEmail();
-
         new RegistrationPage(driver)
                 .inputEmail(validEmail)
                 .inputPassword(password)
                 .inputConfirmPassword(password)
                 .clickRegistrationButton();
     }
-
     @AfterEach
-    public void adminLoginDeleteUser() {
-
-        new HomePage(driver).openHomePage()
+    public void adminLoginDeleteUser(){
+       new HomePage(driver).openHomePage()
                 .moveMouseToDropDownMenu()
                 .clickLogoutButton();
         new LoginPage(driver).inputEmail(ADMIN_EMAIL)
                 .inputPassword(ADMIN_PASSWORD)
                 .clickLoginButton();
         new AdminPanelPage(driver).inputSearchByEmailEditBox(validEmail).clickSearchButton();
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
         new AdminPanelPage(driver).clickEditingUserButton();
+   }
 
-    }
+
+
 }
