@@ -22,7 +22,7 @@ public class UserRegistrationAndRemoval extends BaseTest{
     }
     @AfterEach
     public void adminLoginDeleteUser(){
-       new HomePage(driver).openHomePage()
+        new HomePage(driver).openHomePage()
                 .moveMouseToDropDownMenu()
                 .clickLogoutButton();
         new LoginPage(driver).inputEmail(ADMIN_EMAIL)
@@ -30,8 +30,5 @@ public class UserRegistrationAndRemoval extends BaseTest{
                 .clickLoginButton();
         new AdminPanelPage(driver).inputSearchByEmailEditBox(validEmail).clickSearchButton();
         new AdminPanelPage(driver).clickEditingUserButton();
-   }
-
-
-
+    }
 }
