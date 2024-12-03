@@ -19,6 +19,9 @@ public class AdminPanelPage extends BasePage {
     @FindBy(xpath = "//span[@data-test='deleteUserButton']")
     private WebElement deleteUserButton;
 
+    @FindBy(xpath = "//span[@data-test='editUserButton']")
+    private WebElement editUserButton;
+
     private final WebDriverWait wait;
 
     public AdminPanelPage(WebDriver driver) {

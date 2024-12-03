@@ -40,10 +40,6 @@ public class UserProfilePage extends BasePage {
         enterFieldSurname.sendKeys(surname);
         return this;
     }
-    public UserProfilePage enterInputFieldBirthdate(){
-        inputFieldBirthdate.click();
-        return this;
-    }
     public UserProfilePage enterFieldPhone(String phone){
         inputFieldPhone.sendKeys(phone);
         return this;

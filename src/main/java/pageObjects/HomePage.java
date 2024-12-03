@@ -23,10 +23,10 @@ public class HomePage extends BasePage {
     public WebElement submitButton;
     @FindBy(xpath = "/html/body/div[1]/div[2]/div[2]/div[1]/div/div[1]/div[1]/div[1]/span")
     public WebElement displayedNameInNewPost;
-    @FindBy(xpath = "//label[@for=\"draftCheckbox\"]")
-    public WebElement saveAsADraftButton;
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[3]/div/div/div/div[2]/a[2]/span")
     public WebElement myDraftButton;
+    @FindBy(xpath = "//label[@for=\"draftCheckbox\"]")
+    public WebElement saveAsADraftButton;
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/form/div[1]/p")
     public WebElement errorMessageWhenFieldIsEmpty;
     @FindBy(xpath = "//a[contains(text(),'Home')]")
@@ -35,7 +35,6 @@ public class HomePage extends BasePage {
     private WebElement contactButton;
     @FindBy(xpath = "//div[@class='header']//p[1]")
     private WebElement headerUserMenuDropDown;
-
     @FindBy(xpath = "//a[contains(text(),'Logout')]")
     private WebElement logoutButton;
 
@@ -56,6 +55,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage openHomePage() {
+        wait.until(ExpectedConditions.visibilityOf(homeButton));
         homeButton.click();
         return new HomePage(driver);
     }
@@ -83,13 +83,11 @@ public class HomePage extends BasePage {
         titleEditBox.sendKeys(title);
         return this;
     }
-
     public HomePage inputDescriptionEditBox(String description) {
         wait.until(ExpectedConditions.visibilityOf(descriptionEditBox));
         descriptionEditBox.sendKeys(description);
         return this;
     }
-
     public HomePage inputContentEditBox(String content) {
         wait.until(ExpectedConditions.visibilityOf(contactButton));
         contentEditBox.sendKeys(content);
@@ -114,6 +112,7 @@ public class HomePage extends BasePage {
 
     public HomePage clickSaveAsADraft() {
         wait.until(ExpectedConditions.visibilityOf(saveAsADraftButton));
+        wait.until(ExpectedConditions.urlContains("home"));
         saveAsADraftButton.click();
         return new HomePage(driver);
     }
@@ -123,5 +122,12 @@ public class HomePage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(myDraftButton));
         myDraftButton.click();
         return new DraftPage(driver);
+    }
+    public ContactPage openContactPage() {
+        wait.until(ExpectedConditions.urlContains("home"));
+        wait.until(ExpectedConditions.elementToBeClickable(contactButton));
+        contactButton.click();
+        wait.until(ExpectedConditions.urlContains("contact"));
+        return new ContactPage(driver);
     }
 }
