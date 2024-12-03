@@ -3,22 +3,22 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class RegistrationPage extends BasePage {
+
     @FindBy(xpath = "//input [@placeholder='Email']")
     public WebElement emailRegistrationEditBox;
-   
+
     @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement passwordRegistrationEditBox;
-   
+
     @FindBy(xpath = "//input[@placeholder='Confirm password']")
     public WebElement confirmPasswordRegistrationEditBox;
-   
+
     @FindBy(xpath = "//button[@class='registration-btn']")
     public WebElement registrationButton;
 
@@ -81,7 +81,8 @@ public class RegistrationPage extends BasePage {
         registrationButton.click();
         return this;
     }
-    public HomePage clickRegistrationButtonHomePage(){
+
+    public HomePage clickRegistrationButtonHomePage() {
         wait.until(ExpectedConditions.visibilityOf(registrationButton));
         registrationButton.click();
         return new HomePage(driver);

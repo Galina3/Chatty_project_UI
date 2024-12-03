@@ -6,10 +6,15 @@ import org.junit.jupiter.api.Test;
 import pageObjects.RegistrationPage;
 
 public class RegisterUserTest extends BaseTest {
+
     private RegistrationPage registrationPage;
+
     private final String validPassword = "7269056Gsm";
+
     private final String validEmail = "mdvgsm9@gmail.com";
+
     private final String invalidPassword = "7269056G";
+
     private final String invalidEmail = "test.gmail.com";
 
     @BeforeEach

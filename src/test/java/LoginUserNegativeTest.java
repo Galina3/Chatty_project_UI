@@ -5,11 +5,17 @@ import pageObjects.LoginPage;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginUserNegativeTest extends BaseTest {
+
     private LoginPage loginPage;
+
     private final String invalidEmail = "mdv2.gmail.com";
+
     private final String validPassword = "7304227Gsm";
+
     private final String emptyEmail = "";
+
     private final String validEmail = "mdvgsm3@gmail.com";
+
     private final String emptyPassword = "";
 
     @BeforeEach

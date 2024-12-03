@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class EditUserDataTest extends UserRegistrationAndRemoval {
 
     private final String userName = "Ira";
+
     private final String surname = "Irova";
+
     private final String phone = "+123456789";
 
     @Test

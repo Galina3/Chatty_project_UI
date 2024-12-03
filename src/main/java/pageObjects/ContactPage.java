@@ -14,18 +14,25 @@ public class ContactPage extends BasePage {
 
     @FindBy(xpath = "//a[contains(text(),'Contact')]")
     public WebElement contactButton;
+
     @FindBy(xpath = "//input[@id='name']")
     public WebElement usernameField;
+
     @FindBy(xpath = "//input[@id='email']")
     public WebElement emailField;
+
     @FindBy(xpath = "//textarea[@id='content']")
     public WebElement messageField;
+
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement sendMessageButton;
+
     @FindBy(xpath = "//p[contains(text(), 'Invalid email format')]")
     public WebElement errorMessage;
+
     @FindBy(xpath = "//div[contains(text(), 'Feedback submitted successfully')]")
     public WebElement successMessage;
+
     private WebDriverWait wait;
 
     public ContactPage(WebDriver driver) {

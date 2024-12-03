@@ -1,13 +1,11 @@
 package randomGenerator;
 
-import java.time.LocalDate;
 import java.util.*;
 
 public class RandomDataUtil {
     private static final StringBuilder CAPITAL_SMALL_LATIN_LETTERS_DIGITS = createCapitalSmallLatinLettersDigits();
     private static final int LENGTH = CAPITAL_SMALL_LATIN_LETTERS_DIGITS.length();
     private static final Random RANDOM = new Random();
-
 
     private RandomDataUtil() {
     }

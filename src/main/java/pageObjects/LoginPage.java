@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage extends BasePage {
+
     @FindBy(xpath = "//input[@placeholder='Email']")
     private WebElement emailLoginFormEditBox;
 
@@ -28,7 +29,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     public LoginPage inputEmail(String email) {
@@ -41,19 +42,19 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public HomePage clickLoginButton(){
+    public HomePage clickLoginButton() {
         wait.until(ExpectedConditions.visibilityOf(loginButton));
         loginButton.click();
         return new HomePage(driver);
     }
 
     public void loginButtonIsNotClickable() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         wait.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(loginButton)));
     }
 
     public boolean isLoginButtonClickable() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         try {
             wait.until(ExpectedConditions.elementToBeClickable(loginButton));
             return true;

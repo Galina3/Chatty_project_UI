@@ -6,20 +6,25 @@ import pageObjects.LoginPage;
 import pageObjects.RegistrationPage;
 import randomGenerator.RandomDataUtil;
 
-
 public class UserRegistrationAndRemoval extends BaseTest {
+
     protected String validEmail;
+
     protected String password = "12345678909876543210Gsm";
+
     protected final static String ADMIN_EMAIL = "admintest@gmail.com";
+
     protected final static String ADMIN_PASSWORD = "Admin1234567890";
+
     private AdminPanelPage adminPanelPage;
+
     private HomePage homePage;
+
     private LoginPage loginPage;
 
     @BeforeEach
     public void registerUser() {
         this.validEmail = RandomDataUtil.getRandomValidEmail();
-
         new RegistrationPage(driver)
                 .inputEmail(validEmail)
                 .inputPassword(password)

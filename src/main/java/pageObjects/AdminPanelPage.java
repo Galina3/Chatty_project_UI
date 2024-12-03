@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class AdminPanelPage extends BasePage {
+
     @FindBy(xpath = "//input[@placeholder='Search by email...']")
     private WebElement searchByEmailEditBox;
 
@@ -35,7 +35,7 @@ public class AdminPanelPage extends BasePage {
         return this;
     }
 
-    public AdminPanelPage clickSearchButton(){
+    public AdminPanelPage clickSearchButton() {
         wait.until(ExpectedConditions.visibilityOf(searchButton));
         searchButton.click();
         return this;
@@ -47,7 +47,7 @@ public class AdminPanelPage extends BasePage {
         return this;
     }
 
-    public AdminPanelPage clickEditingUserButton(){
+    public AdminPanelPage clickEditingUserButton() {
         wait.until(ExpectedConditions.visibilityOf(editUserButton));
         editUserButton.click();
         return this;

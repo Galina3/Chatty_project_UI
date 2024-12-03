@@ -4,9 +4,13 @@ import pageObjects.HomePage;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CreatePostTest extends UserRegistrationAndRemoval {
+
     private final String title = "Post New Title";
+
     private final String description = "Post New Description";
+
     private final String content = "Post New Content";
+
     private final String expectedUrl = "http://chatty.telran-edu.de:8089/draft";
 
     @Test
@@ -22,7 +26,7 @@ public class CreatePostTest extends UserRegistrationAndRemoval {
 
     @Test
     public void CreateMyDraftsWithValidDateTest() {
-       new HomePage(driver)
+        new HomePage(driver)
                 .clickCreatePost()
                 .inputTitleEditBox(title)
                 .inputDescriptionEditBox(description)
@@ -30,11 +34,11 @@ public class CreatePostTest extends UserRegistrationAndRemoval {
                 .clickSaveAsADraft()
                 .clickSubmitButton()
                 .clickMyDraftButton();
-        assertEquals(driver.getCurrentUrl(),expectedUrl);
+        assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
 
     @Test
-    public void CreatePostWithEmptyTitleEditBoxTest(){
+    public void CreatePostWithEmptyTitleEditBoxTest() {
         new HomePage(driver)
                 .clickCreatePost()
                 .inputDescriptionEditBox(description)

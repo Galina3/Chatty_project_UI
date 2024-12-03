@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ContactUsFormTest extends UserRegistrationAndRemoval {
+
     private final String username = "tester";
+
     private final String validEmail = "tester5689@gmail.com";
 
     @Test
