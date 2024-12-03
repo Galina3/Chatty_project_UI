@@ -31,7 +31,5 @@ public class EditUserDataTest extends UserRegistrationAndRemoval {
                 .enterFieldPhone(phone)
                 .clickSaveButton();
         assertTrue(new UserProfilePage(driver).isLoginButtonClickable());
-
-
     }
 }
