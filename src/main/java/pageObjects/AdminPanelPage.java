@@ -38,9 +38,15 @@ public class AdminPanelPage extends BasePage {
         return this;
     }
 
-    public AdminPanelPage clickDeleteUserButton(){
+    public AdminPanelPage clickDeleteUserButton() {
         wait.until(ExpectedConditions.visibilityOf(deleteUserButton));
         deleteUserButton.click();
+        return this;
+    }
+
+    public AdminPanelPage clickEditingUserButton(){
+        wait.until(ExpectedConditions.visibilityOf(editUserButton));
+        editUserButton.click();
         return this;
     }
 }
